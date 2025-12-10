@@ -313,20 +313,20 @@ $.get('/api/statistiken', function(data) {
 ## 📸 Screenshots
 
 ### Startseite
-![Startseite](screenshots/startseite.png)
+![Startseite](/screenshots/startseite.png)
 *Übersicht aller Abgeordneten mit Such- und Filterfunktion*
 
 ### Abgeordneten-Profil
-![Abgeordneten-Profil](screenshots/abgeordneten-profil.png)
+![Abgeordneten-Profil](/screenshots/abgeordneten-profil.png)
 *Detailansicht mit allen Reden eines Abgeordneten*
 
 ### Rede-Detailansicht
-![Rede-Detail](screenshots/rede-detail.png)
-![Rede-Detail](screenshots/rede-detail2.png)
+![Rede-Detail](/screenshots/rede-detail.png)
+![Rede-Detail](/screenshots/rede-detail2.png)
 *Volltext einer Rede mit Metadaten und Kommentaren*
 
 ### Statistik-Dashboard
-![Statistiken](screenshots/statistiken.png)
+![Statistiken](/screenshots/statistiken.png)
 *Umfassende Statistiken und Rankings*
 
 ---
