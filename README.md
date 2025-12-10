@@ -1,38 +1,58 @@
-# 🏛️ Bundestag Reden-Portal
+# 🏛️ Bundestag Reden-Portal - Übung 3
+
+**Programmierpraktikum (PPR) - WiSe 2025/2026**  
+**Goethe Universität Frankfurt am Main**  
+**Texttechnology Lab**
+
+---
 
 Eine webbasierte Anwendung zur Visualisierung, Analyse und Durchsuchung von Bundestagsreden der 20. Wahlperiode mit **Javalin**, **FreeMarker** und **jQuery**.
 
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://openjdk.org/)
 [![Javalin](https://img.shields.io/badge/Javalin-6.7.0-blue.svg)](https://javalin.io/)
 [![FreeMarker](https://img.shields.io/badge/FreeMarker-2.3.34-green.svg)](https://freemarker.apache.org/)
-[![Maven](https://img.shields.io/badge/Maven-3.8+-blue.svg)](https://maven.apache.org/)
+[![License](https://img.shields.io/badge/License-Academic-yellow.svg)]()
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 
-- [Projektübersicht](#-projektübersicht)
-- [Features](#-features)
-- [Technologie-Stack](#️-technologie-stack)
-- [Installation](#-installation)
-- [Verwendung](#-verwendung)
-- [Projektstruktur](#-projektstruktur)
-- [Screenshots](#-screenshots)
-- [Lizenz](#-lizenz)
+1. [Projektübersicht](#-projektübersicht)
+2. [Features](#-features)
+3. [Technologie-Stack](#-technologie-stack)
+4. [Systemanforderungen](#-systemanforderungen)
+5. [Installation & Setup](#-installation--setup)
+6. [Verwendung](#-verwendung)
+7. [Projektstruktur](#-projektstruktur)
+10. [Frontend-Technologien](#-frontend-technologien)
+11. [Statistiken & Analytics](#-statistiken--analytics)
+12. [Screenshots](#-screenshots)
+13. [Konfiguration](#-konfiguration)
+14. [Entwicklung](#-entwicklung)
+
+
+
 
 ---
 
 ## 🎯 Projektübersicht
 
-Das **Bundestag Reden-Portal** ist eine umfassende Webanwendung zur Aufbereitung und Visualisierung parlamentarischer Daten. Die Applikation macht Bundestagsreden zugänglich, durchsuchbar und analysierbar.
+Das **Bundestag Reden-Portal** ist eine umfassende Webanwendung zur Aufbereitung und Visualisierung parlamentarischer Daten. Die Applikation baut auf **Übung 2** auf und erweitert die Backend-Infrastruktur um eine moderne, benutzerfreundliche Weboberfläche.
 
-### Hauptziele
+### Motivation
 
-- ✅ Vollständige Webvisualisierung von Bundestagsprotokollen
-- ✅ Leistungsfähige Such- und Filterfunktionen
-- ✅ Umfassende statistische Auswertungen
-- ✅ RESTful API für programmatischen Zugriff
-- ✅ Responsive und barrierefreies Design
+Die Transparenz parlamentarischer Prozesse ist ein Grundpfeiler der Demokratie. Diese Anwendung macht Bundestagsreden zugänglich, durchsuchbar und analysierbar, um:
+- **Bürgern** einen besseren Einblick in politische Debatten zu geben
+- **Forschern** die Analyse parlamentarischer Diskurse zu erleichtern
+- **Entwicklern** Best Practices für Web-Development mit Java zu demonstrieren
+
+### Projektziele
+
+1. ✅ Vollständige Webvisualisierung von Bundestagsprotokollen
+2. ✅ Leistungsfähige Such- und Filterfunktionen
+3. ✅ Umfassende statistische Auswertungen
+4. ✅ RESTful API für programmatischen Zugriff
+5. ✅ Responsive und barrierefreies Design
 
 ---
 
@@ -42,18 +62,18 @@ Das **Bundestag Reden-Portal** ist eine umfassende Webanwendung zur Aufbereitung
 
 - **Live-Suche**: Echtzeit-Suche nach Abgeordneten mit Auto-Suggest
 - **Detailansichten**:
-  - Abgeordneten-Profile mit allen Reden
-  - Volltext-Ansicht einzelner Reden mit Metadaten
-  - Kommentare zu Reden
+    - Abgeordneten-Profile mit allen Reden
+    - Volltext-Ansicht einzelner Reden mit Metadaten
+    - Kommentare zu Reden
 - **Filter & Sortierung**:
-  - Nach Fraktion filtern
-  - Nach Name (A-Z) sortieren
-  - Nach Anzahl der Reden sortieren
+    - Nach Fraktion filtern
+    - Nach Name (A-Z) sortieren
+    - Nach Anzahl der Reden sortieren
 - **Statistik-Dashboard**:
-  - Gesamtübersicht (Abgeordnete, Reden, Fraktionen)
-  - Top-Redner Rankings
-  - Fraktions-Vergleiche
-  - Durchschnittliche Redelängen
+    - Gesamtübersicht (Abgeordnete, Reden, Fraktionen)
+    - Top-Redner Rankings
+    - Fraktions-Vergleiche
+    - Durchschnittliche Redelängen
 
 ### 🌐 Web-Technologien
 
@@ -61,6 +81,13 @@ Das **Bundestag Reden-Portal** ist eine umfassende Webanwendung zur Aufbereitung
 - **AJAX-basierte Suche** mit jQuery
 - **Responsive Design** für mobile Geräte
 - **RESTful API** für Datenabfragen
+
+### 📊 Datenverarbeitung
+
+- **XML-Parsing** von Plenarprotokollen
+- **In-Memory Repository** für schnellen Zugriff
+- **Factory Pattern** für zentrale Datenverwaltung
+- **Service Layer** für Business Logic
 
 ---
 
@@ -71,225 +98,27 @@ Das **Bundestag Reden-Portal** ist eine umfassende Webanwendung zur Aufbereitung
 | Technologie | Version | Verwendung |
 |------------|---------|------------|
 | **Java** | 21 | Programmiersprache |
-| **Maven** | 3.8+ | Build-Management |
-| **Javalin** | 6.7.0 | Web-Framework |
-| **FreeMarker** | 2.3.34 | Template Engine |
-| **JSON** | 20250517 | REST-API Format |
-| **SLF4J** | 2.0.16 | Logging |
+| **Maven** | 3.8+ | Build-Management & Dependency Resolution |
+| **Javalin** | 6.7.0 | Web-Framework (Routing, HTTP-Handler) |
+| **FreeMarker** | 2.3.34 | Template Engine für HTML-Generierung |
+| **JSON** | 20250517 | Datenformat für REST-API |
+| **SLF4J** | 2.0.16 | Logging-Framework |
 
 ### Frontend
 
-- **HTML5/CSS3** - Markup & Styling
-- **JavaScript ES6** - Client-seitige Logik
-- **jQuery 3.6.0** - AJAX & DOM-Manipulation
+| Technologie | Version | Verwendung |
+|------------|---------|------------|
+| **HTML5** | - | Markup-Struktur |
+| **CSS3** | - | Styling & Layout |
+| **JavaScript ES6** | - | Client-seitige Logik |
+| **jQuery** | 3.6.0 | AJAX, DOM-Manipulation |
 
 ### Architektur-Patterns
 
-- **MVC (Model-View-Controller)**
-- **Repository Pattern**
-- **Factory Pattern**
-- **Service Layer Pattern**
-
----
-
-## 📦 Installation
-
-### Voraussetzungen
-
-- **Java 21** oder höher
-- **Maven 3.8+**
-- Optional: Git für Version Control
-
-### Schritt 1: Repository klonen
-
-```bash
-git clone https://github.com/parsa-aminian-dev/Bundestagsverwaltungssystem.git
-cd Bundestagsverwaltungssystem
-```
-
-### Schritt 2: Projekt bauen
-
-```bash
-mvn clean package
-```
-
-Dies erstellt eine ausführbare JAR-Datei unter `target/Uebung3-1.0.jar`.
-
-### Schritt 3: Anwendung starten
-
-**Mit XML-Daten:**
-```bash
-java -jar target/Uebung3-1.0.jar /pfad/zu/xml-dateien
-```
-
-**Ohne Daten (leere Datenbank):**
-```bash
-java -jar target/Uebung3-1.0.jar
-```
-
-### Schritt 4: Im Browser öffnen
-
-```
-http://localhost:7070
-```
-
----
-
-## 💻 Verwendung
-
-### Startseite
-
-Die Startseite bietet:
-- **Suchleiste**: Namen eingeben (z.B. "Scholz")
-- **Filter**: Fraktion aus Dropdown wählen
-- **Sortierung**: Nach Name oder Redeanzahl
-- **Abgeordneten-Karten**: Auf "Details ansehen" klicken
-
-### Abgeordneten-Profil
-
-Zeigt für jeden Abgeordneten:
-- Persönliche Informationen (Name, Fraktion)
-- Anzahl der gehaltenen Reden
-- Durchschnittliche Redelänge
-- Liste aller Reden mit Vorschau
-
-### Rede-Detailansicht
-
-Jede Rede enthält:
-- Vollständiger Redetext
-- Datum und Uhrzeit
-- Zugehöriger Tagesordnungspunkt
-- Alle Kommentare (Zwischenrufe)
-
-### API-Endpunkte
-
-Die Anwendung bietet eine RESTful API:
-
-- `GET /api/abgeordnete` - Alle Abgeordneten
-- `GET /api/abgeordnete/search?q={query}` - Suche
-- `GET /api/abgeordneter/{id}` - Einzelner Abgeordneter
-- `GET /api/reden` - Alle Reden
-- `GET /api/rede/{id}` - Einzelne Rede
-- `GET /api/statistiken` - Statistiken
-
----
-
-## 📁 Projektstruktur
-
-```
-bundestag-reden-portal/
-├── pom.xml                           # Maven Konfiguration
-├── README.md                         # Dokumentation
-├── LICENSE                           # Lizenz
-├── .gitignore                        # Git Ignore
-│
-├── Doc/                              # Dokumentation & UML
-├── screenshots/                      # Screenshots
-│
-└── src/
-    ├── main/
-    │   ├── java/de/uni/ppr/uebung3/
-    │   │   ├── app/                  # Hauptklasse
-    │   │   ├── rest/                 # REST-Handler & Config
-    │   │   ├── service/              # Business Logic
-    │   │   ├── factory/              # Factory & Repositories
-    │   │   ├── model/                # Datenmodelle
-    │   │   └── database/             # Neo4j Connection
-    │   │
-    │   └── resources/
-    │       ├── config.properties     # Konfiguration
-    │       ├── templates/            # FreeMarker Templates
-    │       ├── static/               # CSS, JS, Images
-    │       └── Bundestag20/          # XML-Protokolle
-    │
-    └── test/                         # Unit Tests
-```
-
----
-
-## 📸 Screenshots
-
-### Startseite
-![Startseite](screenshots/startseite.png)
-
-### Abgeordneten-Profil
-![Abgeordneten-Profil](screenshots/abgeordneten-profil.png)
-
-### Rede-Detailansicht
-![Rede-Detail](screenshots/rede-detail.png)
-
-### Statistik-Dashboard
-![Statistiken](screenshots/statistiken.png)
-
----
-
-## ⚙️ Konfiguration
-
-Die Konfiguration erfolgt über `src/main/resources/config.properties`:
-
-```properties
-server.port=7070
-server.host=localhost
-template.path=/templates
-template.cache=false
-static.path=/static
-app.name=Bundestag Reden-Portal
-app.version=1.0
-```
-
-**Custom Port:**
-```bash
-java -Dserver.port=8080 -jar target/Uebung3-1.0.jar
-```
-
----
-
-## 🛠️ Entwicklung
-
-### Projekt kompilieren
-```bash
-mvn clean compile
-```
-
-### Tests ausführen
-```bash
-mvn test
-```
-
-### Im Development-Modus starten
-```bash
-mvn exec:java
-```
-
-### JavaDoc generieren
-```bash
-mvn javadoc:javadoc
-```
-Ausgabe: `target/site/apidocs/index.html`
-
----
-
-## 📄 Lizenz
-
-Dieses Projekt wurde im Rahmen des Programmierpraktikums (PPR) an der Goethe-Universität Frankfurt erstellt.
-
-**Autor:** Parsa Aminian  
-**Organisation:** Goethe University Frankfurt / Texttechnology Lab  
-**Jahr:** 2025
-
----
-
-## 🤝 Kontakt
-
-Bei Fragen oder Anregungen:
-- Email: parsaaminian8080@gmail.com
-- GitHub: [@parsa-aminian-dev](https://github.com/parsa-aminian-dev)
-- Repository: [Bundestagsverwaltungssystem](https://github.com/parsa-aminian-dev/Bundestagsverwaltungssystem)
-
----
-
-**Made with ❤️ for transparent democracy**
-
+- **MVC (Model-View-Controller)**: Trennung von Datenmodell, Präsentation und Steuerung
+- **Repository Pattern**: Abstraktion der Datenzugriffs-Schicht
+- **Factory Pattern**: Zentrale Objekterstellung und -verwaltung
+- **Service Layer Pattern**: Kapselung der Business Logic
 
 
 
