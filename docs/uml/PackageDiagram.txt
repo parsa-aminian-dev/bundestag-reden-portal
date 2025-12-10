@@ -1,0 +1,39 @@
+@startuml
+
+
+package "de.uni.ppr.app" {
+  class Main
+}
+
+package "de.uni.ppr.model" {
+  class Abgeordnete
+  class Fraktion
+  class Beruf
+}
+
+package "de.uni.ppr.loader" {
+  class AbgeordneteLoader
+}
+
+package "de.uni.ppr.util" {
+  class NameComparator
+  class FraktionGrouper
+
+}
+
+package "de.uni.ppr.export" {
+  class GraphML
+}
+
+
+Main --> AbgeordneteLoader
+AbgeordneteLoader --> Abgeordnete
+Fraktion "1" o-- "*" Abgeordnete
+Abgeordnete "0..*" o-- "*" Beruf
+GraphML ..> Abgeordnete
+GraphML ..> Fraktion
+GraphML ..> Beruf
+NameComparator ..> Abgeordnete
+FraktionGrouper ..> Abgeordnete
+
+@enduml

@@ -1,0 +1,62 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Abgeordnete {
+  - id : String
+  - vorname : String
+  - name : String
+  - beruf : String
+  - membership : List<String>
+  --
+  + getId() : String
+  + getVorname() : String
+  + getName() : String
+  + getBeruf() : String
+  + getMembership() : List<String>
+  + getFraktion() : String
+  + toString() : String
+  + equals(Object) : boolean
+  + hashCode() : int
+}
+
+class Fraktion {
+  - name : String
+  - mitglieder : List<Abgeordnete>
+  --
+  + Fraktion(name:String)
+  + getName() : String
+  + getMitglieder() : List<Abgeordnete>
+  + add(Abgeordnete) : void
+  + size() : int
+  + toString() : String
+}
+
+class AbgeordneteLoader {
+  + loadFromJson(path:String) : List<Abgeordnete>
+}
+
+interface GraphMLExportable {
+  + toGraphML() : String
+
+}
+
+
+
+class NameComparator {
+  + compare(a:Abgeordnete, b:Abgeordnete) : int
+}
+
+class FraktionGrouper {
+  + groupByFraktion(l:List<Abgeordnete>) : Map<String,Fraktion>
+}
+
+Fraktion "0..1" o-- "1..*" Abgeordnete
+AbgeordneteLoader ..> Abgeordnete
+NameComparator ..> Abgeordnete
+FraktionGrouper ..> Abgeordnete
+GraphMLExportable <|.. Abgeordnete
+GraphMLExportable <|.. Fraktion
+
+
+@enduml
+
